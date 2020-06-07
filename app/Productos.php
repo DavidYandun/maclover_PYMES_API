@@ -8,18 +8,19 @@ class Productos extends Model
 {
     protected $fillable=[
     	'codigo',
+    	'codigoaux',
+    	'idcategoria',
     	'idubicacion',
-		'idcategoria',
 		'idmarca',
+		'idunidadmedida',
 		'nombre',
-		'entradas',
-		'salidas',
 		'stock',
-		'unidadmedida',
 		'preciocompra',
 		'precioventa',
 		'precioventamayor',
 		'servicio',
+		'iva',
+		'url',
 		'estado',
 		'descripcion'];
 }

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Productos;
+use App\Sucursales;
 use Illuminate\Http\Request;
 
-class ProductosController extends Controller
+class SucursalesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +14,10 @@ class ProductosController extends Controller
      */
     public function index()
     {
-        return Productos::all();
+        return Sucursales::all();
     }
 
-    
+
     /**
      * Store a newly created resource in storage.
      *
@@ -26,45 +26,45 @@ class ProductosController extends Controller
      */
     public function store(Request $request)
     {
-        return Productos::create($request->all());
+        return Sucursales::create($request->all());
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Productos  $productos
+     * @param  \App\sucursales  $sucursales
      * @return \Illuminate\Http\Response
      */
-    public function show($productos)
+    public function show( $sucursales)
     {
-        return Productos::find($productos);
+        return Sucursales::find($sucursales);
     }
 
-    
+ 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Productos  $productos
+     * @param  \App\sucursales  $sucursales
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,  $productos)
+    public function update(Request $request, $sucursales)
     {
-        $producto=$this->show($productos);
-        $producto->fill($request->all())->save();
-        return $producto;
+        $sucursal=$this->show($sucursales);
+        $sucursal->fill($request->all())->save();
+        return $sucursal;
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Productos  $productos
+     * @param  \App\sucursales  $sucursales
      * @return \Illuminate\Http\Response
      */
-    public function destroy($productos)
+    public function destroy( $sucursales)
     {
-        $producto=$this->show($productos);
-        $producto->delete();
-        return $producto;
+        $sucursal=$this->show($sucursales);
+        $sucursal->delete();
+        return $sucursal;
     }
 }

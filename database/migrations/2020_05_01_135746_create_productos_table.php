@@ -16,25 +16,27 @@ class CreateProductosTable extends Migration
         Schema::create('productos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('codigo')->unique();
-            $table->unsignedBigInteger('idubicacion');
+            $table->string('codigoaux')->unique();
             $table->unsignedBigInteger('idcategoria');
+            $table->unsignedBigInteger('idubicacion');
             $table->unsignedBigInteger('idmarca');
+            $table->unsignedBigInteger('idunidadmedida');
             $table->string('nombre');
-            $table->decimal('entradas')->default(0.0);
-            $table->decimal('salidas')->default(0.0);
             $table->decimal('stock');
-            $table->string('unidadmedida');
             $table->decimal('preciocompra');
             $table->decimal('precioventa');
             $table->decimal('precioventamayor');
             $table->boolean('servicio')->default(false);
+            $table->boolean('iva')->default(true);
+            $table->string('url')->nullable(true)->default(null);
             $table->boolean('estado')->default(true);
             $table->string('descripcion')->nullable(true)->default(null);
             $table->timestamps();
             //definicion de claves foraneas
-            $table->foreign('idubicacion')->references('id')->on('ubicaciones');
             $table->foreign('idcategoria')->references('id')->on('categorias');
+            $table->foreign('idubicacion')->references('id')->on('ubicaciones');
             $table->foreign('idmarca')->references('id')->on('marcas');
+            $table->foreign('idunidadmedida')->references('id')->on('unidadmedidas');
         });
     }
 

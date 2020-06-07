@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCategoriasTable extends Migration
+class CreateUnidadmedidasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,10 @@ class CreateCategoriasTable extends Migration
      */
     public function up()
     {
-        Schema::create('categorias', function (Blueprint $table) {
+        Schema::create('unidadmedidas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('idcategoriapadre');
-            $table->string('nombre')->unique();
-            $table->integer('nivel');
+            $table->string('nombre');
             $table->timestamps();
-            //definicion de claves foraneas
-            $table->foreign('idcategoriapadre')->references('id')->on('categorias');
         });
     }
 
@@ -31,6 +27,6 @@ class CreateCategoriasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categorias');
+        Schema::dropIfExists('unidadmedidas');
     }
 }

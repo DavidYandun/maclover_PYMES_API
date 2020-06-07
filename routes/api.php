@@ -19,7 +19,9 @@ use Illuminate\Http\Request;
 
 //Route::apiResource("categorias","CategoriasController");
 
-Route::apiResource("marcas","MarcasController");
-Route::apiResource("ubicaciones","UbicacionesController");
+Route::apiResource("sucursales","SucursalesController");
 Route::apiResource("categorias","CategoriasController");
+Route::apiResource("ubicaciones","UbicacionesController");
+Route::apiResource("marcas","MarcasController");
+Route::apiResource("unidadmedidas","UnidadMedidasController");
 Route::apiResource("productos","ProductosController");

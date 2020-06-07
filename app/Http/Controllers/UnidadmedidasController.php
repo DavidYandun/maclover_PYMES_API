@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Productos;
+use App\Unidadmedidas;
 use Illuminate\Http\Request;
 
-class ProductosController extends Controller
+class UnidadmedidasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +14,10 @@ class ProductosController extends Controller
      */
     public function index()
     {
-        return Productos::all();
+        return Unidadmedidas::all();
     }
 
-    
+
     /**
      * Store a newly created resource in storage.
      *
@@ -26,18 +26,18 @@ class ProductosController extends Controller
      */
     public function store(Request $request)
     {
-        return Productos::create($request->all());
+        return Unidadmedidas::create($request->all());
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Productos  $productos
+     * @param  \App\unidadmedidas  $unidadmedidas
      * @return \Illuminate\Http\Response
      */
-    public function show($productos)
+    public function show($unidadmedidas)
     {
-        return Productos::find($productos);
+        return Unidadmedidas::find($unidadmedidas);
     }
 
     
@@ -45,26 +45,26 @@ class ProductosController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Productos  $productos
+     * @param  \App\unidadmedidas  $unidadmedidas
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,  $productos)
+    public function update(Request $request,  $unidadmedidas)
     {
-        $producto=$this->show($productos);
-        $producto->fill($request->all())->save();
-        return $producto;
+        $unidadmedida=$this->show($unidadmedidas);
+        $unidadmedida->fill($request->all())->save();
+        return $unidadmedida;
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Productos  $productos
+     * @param  \App\unidadmedidas  $unidadmedidas
      * @return \Illuminate\Http\Response
      */
-    public function destroy($productos)
+    public function destroy($unidadmedidas)
     {
-        $producto=$this->show($productos);
-        $producto->delete();
-        return $producto;
+        $unidadmedida=$this->show($unidadmedidas);
+        $unidadmedida->delete();
+        return $unidadmedida;
     }
 }
