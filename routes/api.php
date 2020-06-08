@@ -25,3 +25,4 @@ Route::apiResource("ubicaciones","UbicacionesController");
 Route::apiResource("marcas","MarcasController");
 Route::apiResource("unidadmedidas","UnidadMedidasController");
 Route::apiResource("productos","ProductosController");
+Route::apiResource("cajadiarias","CajadiariasController");
