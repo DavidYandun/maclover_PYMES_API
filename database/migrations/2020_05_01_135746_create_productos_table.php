@@ -16,7 +16,7 @@ class CreateProductosTable extends Migration
         Schema::create('productos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('codigo')->unique();
-            $table->string('codigoaux')->unique();
+            $table->string('codigoaux')->unique()->nullable(true)->default(null);
             $table->unsignedBigInteger('idcategoria');
             $table->unsignedBigInteger('idubicacion');
             $table->unsignedBigInteger('idmarca');
@@ -25,7 +25,7 @@ class CreateProductosTable extends Migration
             $table->decimal('stock');
             $table->decimal('preciocompra');
             $table->decimal('precioventa');
-            $table->decimal('precioventamayor');
+            $table->decimal('precioventamayor')->nullable(true)->default(null);
             $table->boolean('servicio')->default(false);
             $table->boolean('iva')->default(true);
             $table->string('url')->nullable(true)->default(null);

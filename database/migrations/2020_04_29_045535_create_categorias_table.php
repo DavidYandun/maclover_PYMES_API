@@ -15,9 +15,9 @@ class CreateCategoriasTable extends Migration
     {
         Schema::create('categorias', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('idcategoriapadre');
+            $table->unsignedBigInteger('idcategoriapadre')->nullable(true)->default(null);
             $table->string('nombre')->unique();
-            $table->integer('nivel');
+            $table->integer('nivel')->nullable(true)->default(null);
             $table->timestamps();
             //definicion de claves foraneas
             $table->foreign('idcategoriapadre')->references('id')->on('categorias');
