@@ -18,7 +18,7 @@ use Illuminate\Http\Request;
 });*/
 
 //Route::apiResource("categorias","CategoriasController");
-
+//inventario
 Route::apiResource("sucursales","SucursalesController");
 Route::apiResource("categorias","CategoriasController");
 Route::apiResource("ubicaciones","UbicacionesController");
@@ -26,3 +26,6 @@ Route::apiResource("marcas","MarcasController");
 Route::apiResource("unidadmedidas","UnidadMedidasController");
 Route::apiResource("productos","ProductosController");
 Route::apiResource("cajadiarias","CajadiariasController");
+
+//ventas
+Route::apiResource("clientes","ClientesController");
