@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Cajadiarias;
+use App\Pedidomaestrocli;
 use Illuminate\Http\Request;
 
-class CajadiariasController extends Controller
+class PedidomaestrocliController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +14,9 @@ class CajadiariasController extends Controller
      */
     public function index()
     {
-        return Cajadiarias::all();
+        return Pedidomaestrocli::all();
     }
 
-   
     /**
      * Store a newly created resource in storage.
      *
@@ -26,46 +25,44 @@ class CajadiariasController extends Controller
      */
     public function store(Request $request)
     {
-         return Cajadiarias::create($request->all());
+        return Pedidomaestrocli::create($request->all());
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\cajadiaria  $cajadiaria
+     * @param  \App\pedidomaestrocli  $pedidomaestrocli
      * @return \Illuminate\Http\Response
      */
-    public function show( $cajadiarias)
+    public function show($pedidomaestrocli)
     {
-        return Categorias::find($cajadiarias);
+        return Pedidomaestrocli::find($pedidomaestrocli);
     }
-
-   
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\cajadiaria  $cajadiaria
+     * @param  \App\pedidomaestrocli  $pedidomaestrocli
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $cajadiarias)
+    public function update(Request $request, $pedidomaestrocli)
     {
-         $cajadiaria=$this->show($cajadiarias);
-        $cajadiaria->fill($request->all())->save();
-        return $cajadiaria;
+        $pedido=$this->show($pedidomaestrocli);
+        $pedido->fill($request->all())->save();
+        return $pedido;
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\cajadiaria  $cajadiaria
+     * @param  \App\pedidomaestrocli  $pedidomaestrocli
      * @return \Illuminate\Http\Response
      */
-    public function destroy($cajadiarias)
+    public function destroy($pedidomaestrocli)
     {
-        $cajadiaria=$this->show($cajadiarias);
-        $cajadiaria->delete();
-        return $cajadiaria;
+        $pedido=$this->show($pedidomaestrocli);
+        $pedido->delete();
+        return $pedido;
     }
 }

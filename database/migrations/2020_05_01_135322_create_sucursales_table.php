@@ -15,13 +15,13 @@ class CreateSucursalesTable extends Migration
     {
         Schema::create('sucursales', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nombre');
+            $table->string('nombre')->unique();
             $table->string('pais');
             $table->string('provincia');
             $table->string('ciudad');
             $table->string('direccion');
-            $table->string('telefono');
-            $table->string('email');
+            $table->string('telefono')->nullable(true);
+            $table->string('email')->nullable(true);
             $table->string('responsable');
             $table->timestamps();
         });

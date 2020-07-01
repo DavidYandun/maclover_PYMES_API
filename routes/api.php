@@ -29,3 +29,4 @@ Route::apiResource("cajadiarias","CajadiariasController");
 
 //ventas
 Route::apiResource("clientes","ClientesController");
+Route::apiResource("pedidomaestrocli","PedidomaestrocliController");

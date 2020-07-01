@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class RegistrocajasSeeder extends Seeder
+class PedidomaestrocliSeeder extends Seeder
 {
     /**
      * Run the database seeds.

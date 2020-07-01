@@ -15,8 +15,8 @@ class CreateUbicacionesTable extends Migration
     {
         Schema::create('ubicaciones', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('idsucursal');
-            $table->string('nombre');
+            $table->unsignedBigInteger('idsucursal')->default(1);
+            $table->string('nombre')->unique();
             $table->timestamps();
             $table->foreign('idsucursal')->references('id')->on('sucursales');
 

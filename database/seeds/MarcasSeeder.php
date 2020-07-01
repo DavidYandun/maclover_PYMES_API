@@ -11,6 +11,10 @@ class MarcasSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('marcas')->insert([
+            'nombre' => 'Genérico',
+            'created_at' => date('Y-m-d H:m:s'),
+           'updated_at' => date('Y-m-d H:m:s')
+        ]);
     }
 }

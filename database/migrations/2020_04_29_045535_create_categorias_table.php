@@ -17,7 +17,7 @@ class CreateCategoriasTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('idcategoriapadre')->nullable(true)->default(null);
             $table->string('nombre')->unique();
-            $table->integer('nivel')->nullable(true)->default(null);
+            $table->integer('nivel')->default(1);
             $table->timestamps();
             //definicion de claves foraneas
             $table->foreign('idcategoriapadre')->references('id')->on('categorias');

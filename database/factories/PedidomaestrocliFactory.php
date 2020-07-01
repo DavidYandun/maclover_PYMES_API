@@ -2,10 +2,10 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\cajadiaria;
+use App\pedidomaestrocli;
 use Faker\Generator as Faker;
 
-$factory->define(cajadiaria::class, function (Faker $faker) {
+$factory->define(pedidomaestrocli::class, function (Faker $faker) {
     return [
         //
     ];

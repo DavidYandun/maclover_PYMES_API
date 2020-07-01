@@ -11,6 +11,10 @@ class UnidadmedidasSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('unidadmedidas')->insert([
+            'nombre' => 'unidades',
+            'created_at' => date('Y-m-d H:m:s'),
+           'updated_at' => date('Y-m-d H:m:s')
+        ]);
     }
 }

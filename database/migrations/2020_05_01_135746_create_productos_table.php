@@ -16,15 +16,15 @@ class CreateProductosTable extends Migration
         Schema::create('productos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('codigo')->unique();
-            $table->string('codigoaux')->nullable(true)->default('-');
-            $table->unsignedBigInteger('idcategoria');
-            $table->unsignedBigInteger('idubicacion');
-            $table->unsignedBigInteger('idmarca');
-            $table->unsignedBigInteger('idunidadmedida');
+            $table->string('codigoaux')->default('-');
+            $table->unsignedBigInteger('idcategoria')->default(1);
+            $table->unsignedBigInteger('idubicacion')->default(1);
+            $table->unsignedBigInteger('idmarca')->default(1);
+            $table->unsignedBigInteger('idunidadmedida')->default(1);
             $table->string('nombre');
-            $table->decimal('stock');
-            $table->decimal('preciocompra');
-            $table->decimal('precioventa');
+            $table->decimal('stock')->default(0);
+            $table->decimal('preciocompra')->default(0);
+            $table->decimal('precioventa')->default(0);
             $table->decimal('precioventamayor')->nullable(true)->default(null);
             $table->boolean('servicio')->default(false);
             $table->boolean('iva')->default(true);
