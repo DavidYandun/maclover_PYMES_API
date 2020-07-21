@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Pedidomaestrocli;
+use App\Facturamaestroprov;
 use Illuminate\Http\Request;
 
-class PedidomaestrocliController extends Controller
+class FacturamaestroprovController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,9 @@ class PedidomaestrocliController extends Controller
      */
     public function index()
     {
-        return Pedidomaestrocli::all();
+        return Facturamaestroprov::all();
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -25,44 +26,43 @@ class PedidomaestrocliController extends Controller
      */
     public function store(Request $request)
     {
-        return Pedidomaestrocli::create($request->all());
+        return Facturamaestroprov::create($request->all());
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\pedidomaestrocli  $pedidomaestrocli
+     * @param  \App\Facturamaestroprov  $facturamaestroprov
      * @return \Illuminate\Http\Response
      */
-    public function show($pedidomaestrocli)
+    public function show($facturamaestroprov)
     {
-        return Pedidomaestrocli::find($pedidomaestrocli);
+        return Facturamaestroprov::find($facturamaestroprov);
     }
+
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\pedidomaestrocli  $pedidomaestrocli
+     * @param  \App\Facturamaestroprov  $facturamaestroprov
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $pedidomaestrocli)
+    public function update(Request $request, $facturamaestroprov)
     {
-        $pedido=$this->show($pedidomaestrocli);
-        $pedido->fill($request->all())->save();
-        return $pedido;
+        $factura=$this->show($facturamaestroprov);
+        return $factura->fill($request->all())->save();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\pedidomaestrocli  $pedidomaestrocli
+     * @param  \App\Facturamaestroprov  $facturamaestroprov
      * @return \Illuminate\Http\Response
      */
-    public function destroy($pedidomaestrocli)
+    public function destroy($facturamaestroprov)
     {
-        $pedido=$this->show($pedidomaestrocli);
-        $pedido->delete();
-        return $pedido;
+        $factura=$this->show($facturamaestroprov);
+        return $factura->delete();
     }
 }

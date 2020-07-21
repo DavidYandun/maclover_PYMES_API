@@ -15,12 +15,12 @@ class CreateCategoriasTable extends Migration
     {
         Schema::create('categorias', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('idcategoriapadre')->nullable(true)->default(null);
+            $table->unsignedBigInteger('categorias_id')->nullable(true)->default(null);
             $table->string('nombre')->unique();
-            $table->integer('nivel')->default(1);
+            $table->integer('nivel')->default(1)->nullable(true);
             $table->timestamps();
             //definicion de claves foraneas
-            $table->foreign('idcategoriapadre')->references('id')->on('categorias');
+            $table->foreign('categorias_id')->references('id')->on('categorias');
         });
     }
 

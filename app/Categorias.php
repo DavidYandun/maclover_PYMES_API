@@ -6,5 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Categorias extends Model
 {
-    protected $fillable=['idcategoriapadre','nombre','nivel'];
+    protected $fillable = [
+        'categorias_id',
+        'nombre',
+        'nivel'
+    ];
 }

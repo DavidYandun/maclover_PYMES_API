@@ -29,4 +29,13 @@ Route::apiResource("cajadiarias","CajadiariasController");
 
 //ventas
 Route::apiResource("clientes","ClientesController");
-Route::apiResource("pedidomaestrocli","PedidomaestrocliController");
+Route::apiResource("facturamaestrocli","FacturamaestrocliController");
+Route::apiResource("facturadetallecli","FacturadetallecliController");
+Route::apiResource("cajadiaria","CajadiariaController");
+Route::apiResource("registroes","RegistroESController");
+
+//proveedores
+Route::apiResource("proveedores","ProveedoresController");
+Route::apiResource("facturamaestroprov","FacturamaestroprovController");
+Route::apiResource("facturadetalleprov","FacturadetalleprovController");
+

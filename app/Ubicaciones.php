@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ubicaciones extends Model
 {
-    protected $fillable=['idsucursal','nombre'];
+    protected $fillable = [
+        'sucursales_id',
+        'nombre'
+    ];
 }

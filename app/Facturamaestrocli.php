@@ -4,18 +4,24 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Pedidomaestrocli extends Model
+class Facturamaestrocli extends Model
 {
     protected $fillable=[
         'id',
-        'idcliente',
+        'clientes_id',
+        'fecha',
+        'fechaentrega',
+        'numerofactura',
         'subtotal',
         'descuento',
+        'iva',
+        'ice',
         'total',
         'estado',
         'entregado',
         'cobrado',
         'credito',
+        'facturado',
         'tipopago',
         'observacion',
     ];

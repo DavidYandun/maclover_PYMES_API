@@ -2,10 +2,10 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\pedidomaestrocli;
+use App\Proveedores;
 use Faker\Generator as Faker;
 
-$factory->define(pedidomaestrocli::class, function (Faker $faker) {
+$factory->define(Proveedores::class, function (Faker $faker) {
     return [
         //
     ];

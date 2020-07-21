@@ -13,7 +13,7 @@ class UbicacionesSeeder extends Seeder
     {
         DB::table('ubicaciones')->insert([
             'nombre' => 'sin ubicacion',
-            'idsucursal'=> 1,
+            'sucursales_id'=> 1,
             'created_at' => date('Y-m-d H:m:s'),
             'updated_at' => date('Y-m-d H:m:s')
         ]);
