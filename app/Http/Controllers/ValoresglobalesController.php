@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Cajadiaria;
+use App\Valoresglobales;
 use Illuminate\Http\Request;
 
-class CajadiariaController extends Controller
+class ValoresglobalesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +14,10 @@ class CajadiariaController extends Controller
      */
     public function index()
     {
-        return Cajadiaria::all();
+        return Valoresglobales::all();
     }
 
-    
-    /**
+        /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -26,18 +25,18 @@ class CajadiariaController extends Controller
      */
     public function store(Request $request)
     {
-        return Cajadiaria::create($request->all());
+        return Valoresglobales::create($request->all());
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Cajadiaria  $cajadiaria
+     * @param  \App\valoresglobales  $valoresglobales
      * @return \Illuminate\Http\Response
      */
-    public function show($cajadiaria)
+    public function show( $valoresglobales)
     {
-        return Cajadiaria::find($cajadiaria)->with('registroES')->where('id',$cajadiaria)->get();
+        return Valoresglobales::find($valoresglobales);
     }
 
 
@@ -45,24 +44,26 @@ class CajadiariaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Cajadiaria  $cajadiaria
+     * @param  \App\valoresglobales  $valoresglobales
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,  $cajadiaria)
+    public function update(Request $request, $valoresglobales)
     {
-        $caja=$this->show($cajadiaria);
-        return $caja->fill($request->all())->save();
+        $valoresglobale=$this->show($valoresglobales);
+        $valoresglobale->fill($request->all())->save();
+        return $valoresglobale;
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Cajadiaria  $cajadiaria
+     * @param  \App\valoresglobales  $valoresglobales
      * @return \Illuminate\Http\Response
      */
-    public function destroy($cajadiaria)
+    public function destroy($valoresglobales)
     {
-        $caja=$this->show($cajadiaria);
-        return $caja->delete();
+        $valoresglobale=$this->show($valoresglobales);
+        $valoresglobale->delete();
+        return $valoresglobale;
     }
 }

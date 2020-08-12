@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Facturamaestrocli;
 use App\RegistroES;
 use App\Cajadiaria;
+use App\Helpers;
 use Illuminate\Http\Request;
 
 class FacturamaestrocliController extends Controller
@@ -28,10 +29,12 @@ class FacturamaestrocliController extends Controller
      */
     public function store(Request $request)
     {
+        
         if ($request->tipopago == 'efectivo' && $request->cobrado == true) {
-            $this->storeRegistroES($request); 
+            Helpers::storeRegistroESVenta($request); 
         }
         return  Facturamaestrocli::create($request->all());
+        
     }
 
     /**
@@ -42,7 +45,7 @@ class FacturamaestrocliController extends Controller
      */
     public function show($facturamaestrocli)
     {
-        return Facturamaestrocli::find($facturamaestrocli);
+        return Facturamaestrocli::find($facturamaestrocli)->with('facturadetalleclis')->where('id',$facturamaestrocli)->get();
     }
 
     /**
@@ -71,17 +74,7 @@ class FacturamaestrocliController extends Controller
         return $factura->delete();
     }
 
-    function storeRegistroES($dato)
-    {
-        $registro= new RegistroES();
-        $registro->cajadiaria_id = $dato->cajadiaria_id;
-        $registro->descripcion = "Factura de venta #{$dato->numerofactura}";
-        $registro->entradasalida = true;
-        $registro->precio = $dato->total;
-        $registro->fecha = date('Y-m-d H:m:s');
-        $registro->save();
-        Cajadiaria::find($registro->cajadiaria_id)->increment('preciofinal', $registro->precio);
-    }
+    
     function updateRegistroES($dato,$fact)
     {
         $factura=$this->show($fact);

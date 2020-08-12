@@ -39,3 +39,6 @@ Route::apiResource("proveedores","ProveedoresController");
 Route::apiResource("facturamaestroprov","FacturamaestroprovController");
 Route::apiResource("facturadetalleprov","FacturadetalleprovController");
 
+//valoresglobales
+Route::apiResource("valoresglobales","ValoresglobalesController");
+

@@ -14,7 +14,9 @@ class ProductosController extends Controller
      */
     public function index()
     {
-        return Productos::all();
+       return Productos::all();
+       // return Productos::all()->chunk(10);
+        //return Productos::cursor(2);
     }
 
     

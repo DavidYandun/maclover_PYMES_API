@@ -8,7 +8,7 @@ class Facturadetallecli extends Model
 {
     protected $fillable=[
         'id',
-        'facturamaestroclis_id',
+        'facturamaestrocli_id',
         'productos_id',
         'cantidad',
         'descripcion',

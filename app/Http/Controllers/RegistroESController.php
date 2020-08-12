@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\RegistroES;
 use App\Cajadiaria;
+use App\Helpers;
 use Illuminate\Http\Request;
 
 class RegistroESController extends Controller
@@ -26,7 +27,7 @@ class RegistroESController extends Controller
      */
     public function store(Request $request)
     {
-        $this->storeCajaDiaria($request);
+        Helpers::storeCajaDiaria($request);
         return RegistroES::create($request->all());
     }
 
@@ -52,7 +53,7 @@ class RegistroESController extends Controller
     public function update(Request $request, $registroES)
     {
         $registro = $this->show($registroES);
-        $this->updateCajaDiaria($request,$registroES);
+        Helpers::updateCajaDiaria($request, $registroES);
         $registro->fill($request->all())->save();
         return $registro;
     }
@@ -69,28 +70,5 @@ class RegistroESController extends Controller
         $registro = $this->show($registroES);
         $registro->delete();
         return $registro;
-    }
-
-    function storeCajaDiaria($dato)
-    {
-        $caja = Cajadiaria::find($dato->cajadiaria_id);
-        if ($dato->entradasalida == true) {
-            $caja->increment('preciofinal', $dato->precio);
-        } else if ($dato->entradasalida == false) {
-            $caja->decrement('preciofinal', $dato->precio);
-        }
-    }
-
-    function updateCajaDiaria($dato, $registroES)
-    {
-        $registro = $this->show($registroES);
-        $caja = Cajadiaria::find($dato->cajadiaria_id);
-        $caja->decrement('preciofinal', $registro->precio);
-
-        if ($dato->entradasalida == true) {
-            $caja->increment('preciofinal', $dato->precio);
-        } else if ($dato->entradasalida == false) {
-            $caja->decrement('preciofinal', $dato->precio);
-        }
     }
 }

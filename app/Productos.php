@@ -20,6 +20,7 @@ class Productos extends Model
 		'precioventamayor',
 		'servicio',
 		'iva',
+		'ice',
 		'url',
 		'estado',
 		'descripcion'];

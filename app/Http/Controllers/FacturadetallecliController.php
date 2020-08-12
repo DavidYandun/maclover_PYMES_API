@@ -28,12 +28,14 @@ class FacturadetallecliController extends Controller
      */
     public function store(Request $request)
     {
-        //controla la disminución del stock de los productos
-        foreach($request as $req){
-            Productos::find($req->idproducto)->decrement('stock', $req->cantidad);
-            return Facturadetallecli::create($req->all());
+
+        $data = (json_decode($request->getContent(), true));
+        foreach ($data as $d) {
+            //controla la disminución del stock de los productos
+            Productos::find($d['productos_id'])->decrement('stock', $d['cantidad']);
+            Facturadetallecli::create($d);
         }
-     
+        return $data;
     }
 
     /**
@@ -58,7 +60,11 @@ class FacturadetallecliController extends Controller
     public function update(Request $request, $facturadetallecli)
     {
         $detalle = $this->show($facturadetallecli);
-        return $detalle->fill($request->all())->save();
+        
+        Productos::find($detalle->productos_id)->increment('stock', $detalle->cantidad);
+        Productos::find($request->productos_id)->decrement('stock', $request->cantidad);
+        $detalle->fill($request->all())->save();
+        return $detalle;
     }
 
     /**
