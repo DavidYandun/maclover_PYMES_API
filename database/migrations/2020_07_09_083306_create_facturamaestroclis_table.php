@@ -18,7 +18,7 @@ class CreateFacturamaestroclisTable extends Migration
             $table->unsignedBigInteger('clientes_id')->default(1);
             $table->date('fecha')->nullable(true);
             $table->date('fechaentrega')->nullable(true);
-            $table->string('numerofactura')->unique();
+            $table->string('numerofactura')->nullable(true)->unique();
             $table->decimal('subtotal')->default(0);
             $table->decimal('descuento')->default(0);
             $table->decimal('iva')->default(0);
