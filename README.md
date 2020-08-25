@@ -25,4 +25,5 @@ php artisan db:seed
 composer install
 composer dump-autoload
 php artisan migrate
+php artisan migrate:refresh.... cuando da error duplicación de clave primaria(borra toda la información de la base de datos)
 php artisan db:seed
