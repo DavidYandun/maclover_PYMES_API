@@ -27,7 +27,7 @@ class Facturamaestrocli extends Model
         'tipopago',
         'observacion',
     ];
-
+/*
     public static function boot()
     {
         parent::boot();
@@ -35,9 +35,10 @@ class Facturamaestrocli extends Model
             Event::fire('service_request.created', $service_request);
         });
     }
-
+*/
     public function facturadetalleclis()
     {
         return $this->hasMany('App\Facturadetallecli');
     }
+     
 }
