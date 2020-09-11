@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FacturamaestrocliController;
 use Illuminate\Http\Request;
 
 /*
@@ -29,10 +30,13 @@ Route::apiResource("cajadiarias","CajadiariasController");
 
 //ventas
 Route::apiResource("clientes","ClientesController");
+Route::get('/facturamaestrocli/last', 'FacturamaestrocliController@showlast');
 Route::apiResource("facturamaestrocli","FacturamaestrocliController");
+
 Route::apiResource("facturadetallecli","FacturadetallecliController");
 Route::apiResource("cajadiaria","CajadiariaController");
 Route::apiResource("registroes","RegistroESController");
+
 
 //proveedores
 Route::apiResource("proveedores","ProveedoresController");

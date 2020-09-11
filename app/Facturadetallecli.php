@@ -13,6 +13,8 @@ class Facturadetallecli extends Model
         'cantidad',
         'descripcion',
         'preciounitario',
+        'iva',
+        'ice',
         'preciototal',
         'descuento',
         'serie'

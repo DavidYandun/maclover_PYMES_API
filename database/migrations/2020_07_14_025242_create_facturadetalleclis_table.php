@@ -21,6 +21,8 @@ class CreateFacturadetalleclisTable extends Migration
             $table->string('descripcion');
             $table->decimal('preciounitario')->default(0);
             $table->decimal('descuento')->default(0);
+            $table->decimal('iva')->default(0);
+            $table->decimal('ice')->default(0);
             $table->decimal('preciototal')->default(0);
             $table->string('serie');       
             $table->timestamps();
